@@ -6,6 +6,7 @@ const { exit } = require('process');
 const { app, BrowserWindow, ipcMain } = electron;
 
 let mainWindow;
+let todoList = [];
 
 app.on('ready', () => {
     console.log('Program başladı');
@@ -33,7 +34,14 @@ app.on('ready', () => {
     );
 
     ipcMain.on("key:newGoal", (err, data) => {
-        console.log(data);
+        if (data) {
+            todoList.push({
+                id: todoList.length + 1,
+                text: data
+            });
+            getTodoList();
+            mainWindow.webContents.send("key:addItem", todoList);
+        }
     });
 
     ipcMain.on("key:exitButton", (err, data) =>{
@@ -42,3 +50,7 @@ app.on('ready', () => {
 
 
 });
+
+function getTodoList(){
+    console.log(todoList);
+}
