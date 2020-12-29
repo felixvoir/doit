@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'Gibson';
+    src: url('Gibson-LightIt.woff2') format('woff2'),
+        url('Gibson-LightIt.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gibson';
+    src: url('Gibson-Bold.woff2') format('woff2'),
+        url('Gibson-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gibson';
+    src: url('Gibson-Light.woff2') format('woff2'),
+        url('Gibson-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gibson';
+    src: url('Gibson-Italic.woff2') format('woff2'),
+        url('Gibson-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gibson';
+    src: url('Gibson-BoldItalic.woff2') format('woff2'),
+        url('Gibson-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gibson';
+    src: url('Gibson-Regular.woff2') format('woff2'),
+        url('Gibson-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gibson';
+    src: url('Gibson-SemiboldIt.woff2') format('woff2'),
+        url('Gibson-SemiboldIt.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gibson';
+    src: url('Gibson-SemiBold.woff2') format('woff2'),
+        url('Gibson-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+

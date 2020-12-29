@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>do.it</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/fonts/gibson/style.fonts.css">
+    <link rel="stylesheet" href="assets/css/fa.min.css">
+    <base href="./">
+</head>
+<body>
+    <header>
+        
+        <span class="hamburger" id="hamburger">
+            <img src="assets/images/hamburger.svg" alt="">
+            <div class="dropdown" id="dropdown">
+                <li><a href="">Hesap</a></li>
+                <li><a href="">Ayarlar</a></li>
+                <li><a href="javascript:void" onclick="exitProgram();">Çıkış</a></li>
+               
+            </div>
+        </span>
+        <span class="exit-button" id="exitButton">
+            <i class="fas fa-times"></i>
+        </span>
+    </header>
+    <div class="container">
+
+        <div class="wrapper">
+
+                <div class="left-side">
+                    Sol taraf
+                </div> <!-- .end left-side -->
+                <div class="main-side">
+                    
+                        <div class="main-side-head">
+
+                        </div>
+
+
+                        <div class="main-side-body">
+                            <h1>Görevler</h1>
+
+
+                            <ul id="todo-list">
+                                <li> <span class="checkbox">
+                                    <i class="fas fa-check"></i></span> 
+                                    <span class="mission-text"><p>JS gerçektende çok kapsamlı ve çok yönlü bir programlama dili!</p></span> 
+                                    <span class="delete"><i class="fas fa-trash"></i></span>
+                                </li>
+
+                                <li> <span class="checkbox">
+                                    <i class="fas fa-check"></i></span> 
+                                    <span class="mission-text"><p>Yeni bir görev burada! </p></span> 
+                                    <span class="delete"><i class="fas fa-trash"></i></span>
+                                </li>
+
+                            </ul>
+
+
+                        </div>
+
+
+                        <div class="main-side-footer">
+
+                                
+                                    <div class="add-container">
+                                        <span class="plus-icon"><i class="fas fa-plus icon"></i></span>
+                                        <input type="text" autocomplete="false" autofocus class="add-goal" id="addGoal" >
+                                    </div>
+                                
+
+                        </div>
+
+                        
+
+
+
+
+
+
+                </div>  <!-- .end main-side -->
+        </div>  <!-- .end wrapper -->
+     </div> <!-- .end container -->
+
+    <footer>
+
+            <div class="copyright">
+                <small>developed by felix © 2020</small>
+            </div>
+
+    </footer>
+    
+    <script src="./app.js"></script>
+    <script src="./fa.min.js"></script>
+</body>
+</html>

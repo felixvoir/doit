@@ -1,0 +1,218 @@
+:root {
+    /*Renk Paleti*/
+    --background-main : #ededed;
+    --dark : #6e6e6e;
+    --midgray : #949494;
+    --green: #4eb791;
+    --red: #be7272;
+    --gray: #adb0ba;
+    --lightgray: #f9fafb;
+}
+body {
+    background-color: var(--background-main);
+    font-family: 'Gibson';
+    color: var(--dark);
+    line-height: 25px;
+}
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+h1 {
+    font-weight: 500;
+    font-size: 1.3rem;
+    color: var(--midgray);
+}
+a {
+    color: var(--dark);
+    transition: 0.1s ease;
+}
+a:hover {
+    color:#111;
+}
+small {
+    font-weight: 200;
+    font-size: .7rem;
+    user-select: none;
+}
+footer {
+    padding:2px 15px;
+    
+}
+.copyright {
+    position: fixed;
+    bottom: 0;
+    z-index: -1;
+}
+
+.container {
+
+}
+.wrapper {
+    display: flex;
+    justify-content: space-around
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 12px;
+    background-color: #fff;
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+    z-index: -1;
+    
+}
+.hamburger {
+    color: var(--gray);
+    margin-top: 5px;
+    width: 27px;
+    cursor: pointer;
+    z-index: 10;
+    -webkit-app-region: no-drag;
+}
+.hamburger:hover {
+    color: var(--dark)
+}
+.exit-button {
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: var(--gray);
+    margin-right: 10px;
+    -webkit-app-region: no-drag;
+}
+
+.exit-button:hover {
+    color: var(--dark);
+    z-index: 10;
+}
+
+
+
+.left-side {
+    background-color: #fff;
+    width: 100%;
+    height: 100vh;
+    flex: 1;
+    padding: 5px;
+    display: none;
+}
+
+
+.main-side {
+    width: 100%;
+    flex: 3;
+    padding: 15px;
+}
+
+
+
+/*Görev kutusu*/
+.main-side-body ul li {
+    list-style: none;
+    padding: 15px ;
+    margin: 10px 0;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor:default;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: center;
+    transition: 0.1s ease;
+}
+.main-side-body ul li:hover {
+    background-color: var(--lightgray);
+    transition: 0.1s ease;
+}
+.checkbox {
+    color:var(--gray);
+    margin-right: 10px;
+}
+.checkbox:hover {
+    cursor: pointer;
+    color:var(--green);
+}
+.mission-text p {
+    font-weight: 400;
+    color: var(--midgray);
+}
+.mission-text p:hover {
+    color: var(--dark);
+}
+.delete {
+    color:var(--gray);
+    margin-left: 10px;
+}
+.delete:hover {
+    cursor: pointer;
+    color:var(--red);
+}
+
+
+/*Görev Ekle*/
+.main-side-footer{
+
+}
+
+.add-container {
+    bottom: 0;
+    padding: 5px 15px; 
+    overflow: hidden;
+    position: relative;
+    width: inherit;
+    object-fit: contain;
+    border-radius: 4px;
+    background-color: rgba(46,167,219,.8);
+    transition: 0.1s ease;
+}
+.add-container:hover {
+    background-color: rgba(46,167,219,1);
+    transition: 0.1s ease;
+}
+/*input*/
+.add-goal {
+    
+    width: 90%;
+    padding: 15px 10px; 
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: #fff;
+    
+    background-size: cover;
+}
+.add-goal:hover{
+    
+}
+.plus-icon {
+    color: #fff;
+}
+
+/*Menu*/
+.dropdown {
+    position: absolute;
+    z-index: 10;
+    background: #fff;
+    border: 1px solid var(--background-main);
+    border-radius: 4px;
+    padding: 15px 20px;
+    display: none;
+}
+#dropdown {
+   
+}
+.dropdown li {
+    list-style: none;
+}
+.dropdown li a {
+    text-decoration: none;
+    font-size: 0.9rem;;
+    color: var(--midgray);
+    transition: 0.1s ease;
+}
+.dropdown li a:hover {
+    color: var(--dark);
+}
