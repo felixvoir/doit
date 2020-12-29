@@ -25,7 +25,7 @@ const todoList = document.querySelector('#todo-list');
 // Ateşle
 addGoal.addEventListener('keyup', sendGoal);
 
-
+// Gönderme fonksiyonu
 function sendGoal(e){
 
     if(e.keyCode === 13){
@@ -41,14 +41,65 @@ function sendGoal(e){
 }
 
 // Backendden geri al
-ipcRenderer.on("key:addItem", (err, newTodoList) => {
-        
-    const index = newTodoList.length -1;
+ipcRenderer.on("key:addItem", (e, newTodo) => {
 
     // // Frontende yaz >
-    todoList.insertAdjacentHTML('beforeend',`<li data-id="${newTodoList[index].id}"><span class="checkbox"><i class="fas fa-check"></i></span> <span class="mission-text"><p>${newTodoList[index].text}</p></span> <span class="delete"><i class="fas fa-trash"></i></span></li>`)
-        
+    //container
+    const container = document.querySelector(".todo-list");
+
+    //li
+    const li = document.createElement('li');
+    
+    // span > checkbox
+    const checkbox = document.createElement('span');
+    checkbox.className = "checkbox";
+
+    // i > done
+    const doneIcon = document.createElement("i");
+    doneIcon.className = "fas fa-check";
+
+    // span > textbox
+    const spanText = document.createElement("span");
+    spanText.className = "mission-text";
+    spanText.innerText = newTodo.text;
+    
+
+    // span > delete
+    const spanDelete = document.createElement("span");
+    spanDelete.className= "delete";
+
+    // i > deleteIcon
+    const deleteIcon = document.createElement("i");
+    deleteIcon.className = "fas fa-trash deleteFi";
+
+    spanDelete.addEventListener("click", (e) => {
+        if (confirm("Gerçekten silmek istiyormusun?")) {
+            e.target.parentNode.parentNode.parentNode.remove();
+        }
+    })
+
+    
+    checkbox.appendChild(doneIcon);
+    li.appendChild(checkbox);
+    li.appendChild(spanText);
+    spanDelete.appendChild(deleteIcon);
+    li.appendChild(spanDelete);
+    container.appendChild(li);
+    
 });
+
+
+ 
+ 
+
+
+
+    
+
+
+
+
+
 
 
 // Exit button

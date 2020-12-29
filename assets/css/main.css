@@ -13,6 +13,7 @@ body {
     font-family: 'Gibson';
     color: var(--dark);
     line-height: 25px;
+    overflow: hidden;
 }
 * {
     margin: 0;
@@ -47,13 +48,19 @@ footer {
 }
 
 .container {
-
+    margin: 40px auto 0;
 }
 .wrapper {
     display: flex;
-    justify-content: space-around
+    justify-content: space-around;
 }
 header {
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+}
+.header-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -61,7 +68,7 @@ header {
     background-color: #fff;
     -webkit-user-select: none;
     -webkit-app-region: drag;
-    z-index: -1;
+    
     
 }
 .hamburger {
@@ -101,6 +108,7 @@ header {
 
 
 .main-side {
+    
     width: 100%;
     flex: 3;
     padding: 15px;
@@ -194,7 +202,7 @@ header {
 /*Menu*/
 .dropdown {
     position: absolute;
-    z-index: 10;
+    z-index: 100;
     background: #fff;
     border: 1px solid var(--background-main);
     border-radius: 4px;

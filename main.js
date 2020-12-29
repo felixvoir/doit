@@ -35,12 +35,13 @@ app.on('ready', () => {
 
     ipcMain.on("key:newGoal", (err, data) => {
         if (data) {
-            todoList.push({
+            let todo = {
                 id: todoList.length + 1,
                 text: data
-            });
-            getTodoList();
-            mainWindow.webContents.send("key:addItem", todoList);
+            };
+            todoList.push(todo);
+
+            mainWindow.webContents.send("key:addItem", todo);
         }
     });
 
@@ -50,7 +51,3 @@ app.on('ready', () => {
 
 
 });
-
-function getTodoList(){
-    console.log(todoList);
-}

@@ -11,19 +11,22 @@
 </head>
 <body>
     <header>
-        
-        <span class="hamburger" id="hamburger">
-            <img src="assets/images/hamburger.svg" alt="">
-            <div class="dropdown" id="dropdown">
-                <li><a href="">Hesap</a></li>
-                <li><a href="">Ayarlar</a></li>
-                <li><a href="javascript:void" onclick="exitProgram();">Çıkış</a></li>
-               
-            </div>
-        </span>
-        <span class="exit-button" id="exitButton">
-            <i class="fas fa-times"></i>
-        </span>
+        <div class="header-wrapper">
+            
+            <span class="hamburger" id="hamburger">
+                <img src="assets/images/hamburger.svg" alt="">
+                <div class="dropdown" id="dropdown">
+                    <li><a href="">Hesap</a></li>
+                    <li><a href="">Ayarlar</a></li>
+                    <li><a href="">Tüm görevleri sil</a></li>
+                    <li><a href="javascript:void" onclick="exitProgram();">Çıkış</a></li>
+                
+                </div>
+            </span>
+            <span class="exit-button" id="exitButton">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
     </header>
     <div class="container">
 
@@ -43,17 +46,13 @@
                             <h1>Görevler</h1>
 
 
-                            <ul id="todo-list">
-                                <li> 
-                                    <span class="checkbox" id="done">
-                                    <i class="fas fa-check"></i>
-                                    </span> 
-                                    <span class="mission-text">JS gerçektende çok kapsamlı ve çok yönlü bir programlama dili!</span> 
-                                    <span class="delete">
-                                        <i class="fas fa-trash"></i>
-                                    </span>
-                                </li>
-                            </ul>
+                            <div class="todo-container">
+
+                                <ul id="todo-list" class="todo-list">
+                               
+                                </ul>
+                                
+                            </div>
 
 
                         </div>
