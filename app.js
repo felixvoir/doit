@@ -49,6 +49,8 @@ ipcRenderer.on("key:addItem", (e, newTodo) => {
 
     //li
     const li = document.createElement('li');
+    li.className = "liste";
+    li.setAttribute('data-id', newTodo.id);
     
     // span > checkbox
     const checkbox = document.createElement('span');
@@ -63,21 +65,22 @@ ipcRenderer.on("key:addItem", (e, newTodo) => {
     spanText.className = "mission-text";
     spanText.innerText = newTodo.text;
     
-
     // span > delete
     const spanDelete = document.createElement("span");
     spanDelete.className= "delete";
 
     // i > deleteIcon
     const deleteIcon = document.createElement("i");
-    deleteIcon.className = "fas fa-trash deleteFi";
+    deleteIcon.className = "fas fa-trash delete";
+
+    
 
     spanDelete.addEventListener("click", (e) => {
         if (confirm("Gerçekten silmek istiyormusun?")) {
-            e.target.parentNode.parentNode.parentNode.remove();
+            deleter(e.target);
+
         }
     })
-
     
     checkbox.appendChild(doneIcon);
     li.appendChild(checkbox);
@@ -88,6 +91,9 @@ ipcRenderer.on("key:addItem", (e, newTodo) => {
     
 });
 
+function deleter(hedef) {
+    hedef.parentNode.parentNode.parentNode.remove();
+}
 
  
  

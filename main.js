@@ -22,9 +22,6 @@ app.on('ready', () => {
         
         );
 
-    // mainWindow.setMenuBarVisibility(false)
-    // Menu.setApplicationMenu(null)
-
     mainWindow.loadURL(
         url.format({
             pathname: path.join(__dirname, "main.html"),
@@ -37,10 +34,10 @@ app.on('ready', () => {
         if (data) {
             let todo = {
                 id: todoList.length + 1,
-                text: data
+                text: data 
             };
             todoList.push(todo);
-
+            console.log(todo);
             mainWindow.webContents.send("key:addItem", todo);
         }
     });
