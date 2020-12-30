@@ -134,27 +134,33 @@ header {
     background-color: var(--lightgray);
     transition: 0.1s ease;
 }
-.checkbox {
-    color:var(--gray); 
-    /* pointer-events: none; */
-}
-.checkbox:hover {
-    color:var(--green);
-}
-.mission-text p {
+
+.mission-text {
     font-weight: 400;
     color: var(--midgray);
 }
-.mission-text p:hover {
+.mission-text:hover {
     color: var(--dark);
 }
-.delete {
-    color:var(--gray);
-    padding: 0;
-    /* pointer-events: none;
-    cursor: pointer; */
+
+i {
+    pointer-events: none;
 }
-.delete:hover {
+#iconNan {
+    pointer-events: none;
+}
+.btn-icon {
+    color:var(--gray);
+    background: none;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+}
+.btn-check:hover {
+    color:var(--green);
+}
+.btn-delete:hover {
+    
     color:var(--red);
 }
 

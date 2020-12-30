@@ -21,7 +21,7 @@ menu.addEventListener('click', function(){
 
 const addGoal = document.querySelector('#addGoal');
 // container
-const todoList = document.querySelector('#todo-list');
+const deleteAll = document.querySelector('#cleaner');
 // Ateşle
 addGoal.addEventListener('keyup', sendGoal);
 
@@ -73,12 +73,11 @@ function addElement(newTodo) {
     li.className = "liste";
     
 
-
-    // i > done
-    const insertButton = document.createElement("button");
-    insertButton.className = "btn-icon";
-    insertButton.setAttribute('data-id',newTodo.id);
-    insertButton.innerText = "T";
+    // button > done
+    const completeButton = document.createElement("button");
+    completeButton.className = "btn-icon btn-check";
+    completeButton.setAttribute('data-id',newTodo.id);
+    completeButton.innerHTML = '<i id="iconNan" class="fas fa-check"></i>';
 
     // span > textbox
     const spanText = document.createElement("span");
@@ -86,19 +85,12 @@ function addElement(newTodo) {
     spanText.innerText = newTodo.text;
     
 
-    // Button
+    // button > deletecomplete
     const deleteButton = document.createElement("button");
-    deleteButton.className = "btn-icon";
+    deleteButton.className = "btn-icon btn-delete";
     deleteButton.setAttribute('data-id', newTodo.id);
-    deleteButton.innerText = "X";
+    deleteButton.innerHTML = '<i id="iconNan" class="fas fa-trash"></i>';
 
-    // i > deleteIcon
-    // const deleteIcon = document.createElement("i");
-    // deleteIcon.className = "fas fa-trash delete";
-    
-    
-
-    
 
     deleteButton.addEventListener("click", (e) => {
         if (confirm("Gerçekten silmek istiyormusun?")) {
@@ -108,20 +100,40 @@ function addElement(newTodo) {
             ipcRenderer.send("deleteGoal", did)
         }
     })
+
+    completeButton.addEventListener("click", (e) => {
+
+            e.preventDefault()
+            deleter(e.target);
+            const did = e.target.getAttribute("data-id");
+            ipcRenderer.send("completeGoal", did)
+
+    })
     
     
-    li.appendChild(insertButton);
+    li.appendChild(completeButton);
     li.appendChild(spanText);
     li.appendChild(deleteButton);
     container.appendChild(li);
 }
+
+
+deleteAll.addEventListener("click", (e) => {
+
+    e.preventDefault()
+    const area = document.querySelector('#todo-list');
+    area.innerHTML = "";
+    ipcRenderer.send("deleteAll", "sil");
+
+})
+
 
 function deleter(hedef) {
     
     hedef.parentNode.remove();
 }
 
- 
+
  
 
 
