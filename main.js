@@ -37,24 +37,35 @@ app.on('ready', () => {
                 text: data 
             };
             todoList.push(todo);
-            console.log(todo);
+
+            db.query("INSERT INTO goals SET text = ?", data, (e,r,f) => {
+                
+            });
+            
             mainWindow.webContents.send("key:addItem", todo);
         }
     });
 
     ipcMain.on("key:exitButton", (err, data) =>{
-        exit();
+        process.exit()
     }); 
 
     mainWindow.webContents.once("dom-ready", () => {
 
         db.query("SELECT * FROM goals", (error, results, fields) => {
-            mainWindow.webContents.send("key:database", results);
+            mainWindow.webContents.send("init", results);
         });
 
     });
 
-    
+    ipcMain.on("deleteGoal", (err, data) => {
+        db.query("DELETE FROM goals WHERE id = ?", data, (e,r,f) => {
+            if (r.affectedRows > 0) {
+                console.log("Başarılı şekilde silindi");
+            }
+        });
+    });
+
 
 
 });

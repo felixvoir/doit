@@ -45,66 +45,80 @@ function sendGoal(e){
 
 // Databaseden gelen
 
-ipcRenderer.on("key:database", (e, database) => {
-    console.log(database);
+ipcRenderer.on("init", (e, database) => {
+    
+    database.forEach(todo => {
+        addElement(todo);
+    });
 })
-
 
 
 
 // Backendden geri al
 ipcRenderer.on("key:addItem", (e, newTodo) => {
 
-    // // Frontende yaz >
+    addElement(newTodo);
+    
+});
+
+
+// DOM Üzerinde elementleri oluştur.
+function addElement(newTodo) {
+        // // Frontende yaz >
     //container
     const container = document.querySelector(".todo-list");
 
     //li
     const li = document.createElement('li');
     li.className = "liste";
-    li.setAttribute('data-id', newTodo.id);
     
-    // span > checkbox
-    const checkbox = document.createElement('span');
-    checkbox.className = "checkbox";
+
 
     // i > done
-    const doneIcon = document.createElement("i");
-    doneIcon.className = "fas fa-check";
+    const insertButton = document.createElement("button");
+    insertButton.className = "btn-icon";
+    insertButton.setAttribute('data-id',newTodo.id);
+    insertButton.innerText = "T";
 
     // span > textbox
     const spanText = document.createElement("span");
     spanText.className = "mission-text";
     spanText.innerText = newTodo.text;
     
-    // span > delete
-    const spanDelete = document.createElement("span");
-    spanDelete.className= "delete";
+
+    // Button
+    const deleteButton = document.createElement("button");
+    deleteButton.className = "btn-icon";
+    deleteButton.setAttribute('data-id', newTodo.id);
+    deleteButton.innerText = "X";
 
     // i > deleteIcon
-    const deleteIcon = document.createElement("i");
-    deleteIcon.className = "fas fa-trash delete";
+    // const deleteIcon = document.createElement("i");
+    // deleteIcon.className = "fas fa-trash delete";
+    
+    
 
     
 
-    spanDelete.addEventListener("click", (e) => {
+    deleteButton.addEventListener("click", (e) => {
         if (confirm("Gerçekten silmek istiyormusun?")) {
+            e.preventDefault()
             deleter(e.target);
-
+            const did = e.target.getAttribute("data-id");
+            ipcRenderer.send("deleteGoal", did)
         }
     })
     
-    checkbox.appendChild(doneIcon);
-    li.appendChild(checkbox);
-    li.appendChild(spanText);
-    spanDelete.appendChild(deleteIcon);
-    li.appendChild(spanDelete);
-    container.appendChild(li);
     
-});
+    li.appendChild(insertButton);
+    li.appendChild(spanText);
+    li.appendChild(deleteButton);
+    container.appendChild(li);
+}
 
 function deleter(hedef) {
-    hedef.parentNode.parentNode.parentNode.remove();
+    
+    hedef.parentNode.remove();
 }
 
  
@@ -126,3 +140,4 @@ exitButton.addEventListener('click', exitProgram);
 function exitProgram(e){
     ipcRenderer.send("key:exitButton");
 }
+

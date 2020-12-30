@@ -135,11 +135,10 @@ header {
     transition: 0.1s ease;
 }
 .checkbox {
-    color:var(--gray);
-    margin-right: 10px;
+    color:var(--gray); 
+    /* pointer-events: none; */
 }
 .checkbox:hover {
-    cursor: pointer;
     color:var(--green);
 }
 .mission-text p {
@@ -151,13 +150,13 @@ header {
 }
 .delete {
     color:var(--gray);
-    margin-left: 10px;
+    padding: 0;
+    /* pointer-events: none;
+    cursor: pointer; */
 }
 .delete:hover {
-    cursor: pointer;
     color:var(--red);
 }
-
 
 /*Görev Ekle*/
 .main-side-footer{
