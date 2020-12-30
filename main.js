@@ -1,7 +1,7 @@
 const electron = require('electron');
 const url = require('url');
 const path = require('path');
-const { exit } = require('process');
+const db = require('./lib/connection').db;
 
 const { app, BrowserWindow, ipcMain } = electron;
 
@@ -45,6 +45,16 @@ app.on('ready', () => {
     ipcMain.on("key:exitButton", (err, data) =>{
         exit();
     }); 
+
+    mainWindow.webContents.once("dom-ready", () => {
+
+        db.query("SELECT * FROM goals", (error, results, fields) => {
+            mainWindow.webContents.send("key:database", results);
+        });
+
+    });
+
+    
 
 
 });

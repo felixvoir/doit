@@ -40,6 +40,18 @@ function sendGoal(e){
     }
 }
 
+
+
+
+// Databaseden gelen
+
+ipcRenderer.on("key:database", (e, database) => {
+    console.log(database);
+})
+
+
+
+
 // Backendden geri al
 ipcRenderer.on("key:addItem", (e, newTodo) => {
 
