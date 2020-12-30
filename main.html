@@ -7,22 +7,25 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/fonts/gibson/style.fonts.css">
     <link rel="stylesheet" href="assets/css/fa.min.css">
+    <link rel="stylesheet" href="./node_modules/animate.css/animate.min.css">
     <base href="./">
 </head>
 <body>
     <header>
         <div class="header-wrapper">
             
-            <span class="hamburger" id="hamburger">
-                <img src="assets/images/hamburger.svg" alt="">
-                <div class="dropdown" id="dropdown">
-                    <li><a href="javascript:void">Hesap</a></li>
-                    <li><a href="javascript:void">Ayarlar</a></li>
-                    <li><a href="javascript:void" id="cleaner">Tüm görevleri sil</a></li>
-                    <li><a href="javascript:void" onclick="exitProgram();">Çıkış</a></li>
-                
-                </div>
+            <span class="hamburger animate__animated" id="hamburger">
+                <img src="assets/images/hamburger.svg" alt="">   
             </span>
+
+            <img src="./assets/images/doo.svg" class="logo animate__animated" alt="">
+
+            <div class="horm animate__animated" id="horm">
+                <li><a href="javascript:void">Hesap</a></li>
+                <li><a href="javascript:void">Ayarlar</a></li>
+                <li><a href="javascript:void" id="cleaner">Tüm görevleri sil</a></li>
+                <li><a href="javascript:void" onclick="exitProgram();">Çıkış</a></li>
+            </div>
             <span class="exit-button" id="exitButton">
                 <i class="fas fa-times"></i>
             </span>
@@ -43,7 +46,7 @@
 
 
                         <div class="main-side-body">
-                            <h1>Görevler</h1>
+                            
 
 
                             <div class="todo-container">
@@ -63,7 +66,7 @@
                                 
                                     <div class="add-container">
                                         <span class="plus-icon"><i class="fas fa-plus icon"></i></span>
-                                        <input type="text" autocomplete="false" autofocus class="add-goal" id="addGoal" >
+                                        <input type="text" autocomplete="false" autofocus class="add-goal" placeholder="Başlamak için yeni bir görev gir!" id="addGoal" >
                                     </div>
                                 
 

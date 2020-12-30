@@ -41,6 +41,14 @@ footer {
     padding:2px 15px;
     
 }
+.liste {
+    position: relative;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    z-index: 1;
+}
 .copyright {
     position: fixed;
     bottom: 0;
@@ -48,19 +56,24 @@ footer {
 }
 
 .container {
-    margin: 40px auto 0;
+    margin: 50px auto 0;
 }
 .wrapper {
     display: flex;
     justify-content: space-around;
+}
+li {
+    z-index: 5;
 }
 header {
     position: fixed;
     right: 0;
     left: 0;
     top: 0;
+    z-index: 2;
 }
 .header-wrapper {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -68,15 +81,13 @@ header {
     background-color: #fff;
     -webkit-user-select: none;
     -webkit-app-region: drag;
-    
-    
+    z-index: 3;
 }
 .hamburger {
     color: var(--gray);
     margin-top: 5px;
     width: 27px;
     cursor: pointer;
-    z-index: 10;
     -webkit-app-region: no-drag;
 }
 .hamburger:hover {
@@ -137,7 +148,9 @@ header {
 
 .mission-text {
     font-weight: 400;
+    padding: 0 11px;
     color: var(--midgray);
+    flex: 2;
 }
 .mission-text:hover {
     color: var(--dark);
@@ -158,9 +171,10 @@ i {
 }
 .btn-check:hover {
     color:var(--green);
+    flex: 1;
 }
 .btn-delete:hover {
-    
+    float: 1;
     color:var(--red);
 }
 
@@ -200,6 +214,9 @@ i {
 .add-goal:hover{
     
 }
+::placeholder {
+    color: var(--lightgray);
+}
 .plus-icon {
     color: #fff;
 }
@@ -207,7 +224,7 @@ i {
 /*Menu*/
 .dropdown {
     position: absolute;
-    z-index: 100;
+    z-index: 30;
     background: #fff;
     border: 1px solid var(--background-main);
     border-radius: 4px;
@@ -215,17 +232,51 @@ i {
     display: none;
 }
 #dropdown {
-   
+    z-index: 30;
 }
 .dropdown li {
     list-style: none;
+    z-index: 30;
 }
 .dropdown li a {
     text-decoration: none;
     font-size: 0.9rem;;
     color: var(--midgray);
     transition: 0.1s ease;
+    z-index: 30;
 }
 .dropdown li a:hover {
     color: var(--dark);
+    z-index: 30;
+}
+
+.logo {
+    width: 70px;
+    opacity: 0.1;
+}
+/*SIDE MENU*/
+.horm {
+    z-index: 4;
+    display: none;
+    position: relative;
+}
+.horm li {
+    list-style: none;
+    z-index: 10;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3px;
+
+}
+.horm li a {
+    text-decoration: none;
+    font-size: 0.9rem;;
+    color: var(--midgray);
+    transition: 0.1s ease;
+    z-index: 15;
+}
+.horm li a:hover {
+    color: var(--dark);
+    z-index: 300;
 }

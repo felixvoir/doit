@@ -1,5 +1,6 @@
-const menu = document.querySelector('#hamburger');
-const dropdown = document.querySelector('.dropdown');
+const menu = document.querySelector('.hamburger');
+const horm = document.querySelector('.horm');
+const logo = document.querySelector('.logo');
 const electron = require('electron');
 const { ipcRenderer } = electron;
 
@@ -7,12 +8,27 @@ const { ipcRenderer } = electron;
 // HMB MENU
 menu.addEventListener('click', function(){
     // Check dislay situation
-    const styleOf = getComputedStyle(dropdown);
+    const styleOf = getComputedStyle(horm);
+
+    
     
     if (styleOf.display === "none") {
-        dropdown.style.display = "block";
+        
+        menu.classList.add("animate__headShake");
+        logo.style.display = "none";
+        horm.style.display = "block";
+        horm.classList.add('animate__fadeInLeft');
+        horm.classList.remove('animate__bounceOutLeft');
     } else {
-        dropdown.style.display = "none";
+        horm.classList.add('animate__bounceOutLeft');
+        horm.classList.remove('animate__fadeInLeft');
+        setTimeout(() => { 
+            horm.style.display = "none";
+            menu.classList.remove("animate__headShake");
+            logo.style.display = "block";
+        }, 300);
+        
+        
     }
 });
 
@@ -70,7 +86,7 @@ function addElement(newTodo) {
 
     //li
     const li = document.createElement('li');
-    li.className = "liste";
+    li.className = "liste animate__animated";
     
 
     // button > done
@@ -93,7 +109,7 @@ function addElement(newTodo) {
 
 
     deleteButton.addEventListener("click", (e) => {
-        if (confirm("Gerçekten silmek istiyormusun?")) {
+        if ("Gerçekten silmek istiyormusun?") {
             e.preventDefault()
             deleter(e.target);
             const did = e.target.getAttribute("data-id");
@@ -104,9 +120,10 @@ function addElement(newTodo) {
     completeButton.addEventListener("click", (e) => {
 
             e.preventDefault()
-            deleter(e.target);
+            completer(e.target);
             const did = e.target.getAttribute("data-id");
             ipcRenderer.send("completeGoal", did)
+
 
     })
     
@@ -115,6 +132,7 @@ function addElement(newTodo) {
     li.appendChild(spanText);
     li.appendChild(deleteButton);
     container.appendChild(li);
+    li.classList.add('animate__headShake');
 }
 
 
@@ -130,7 +148,17 @@ deleteAll.addEventListener("click", (e) => {
 
 function deleter(hedef) {
     
-    hedef.parentNode.remove();
+    hedef.parentNode.classList.add('animate__backOutDown');
+    setTimeout(() => { 
+        hedef.parentNode.remove();
+    }, 500);
+}
+function completer(hedef) {
+    
+    hedef.parentNode.classList.add('animate__backOutLeft');
+    setTimeout(() => { 
+        hedef.parentNode.remove();
+    }, 500);
 }
 
 
